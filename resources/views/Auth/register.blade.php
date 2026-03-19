@@ -8,31 +8,52 @@
 </head>
 
 <body>
+
     @extends('layouts.app')
     @section('content')
-        <h1>Registro de Usuarios</h1>
-        <form action="{{ route('register.store') }}" method="POST">
+        <h1 class="mb-4">Registro de Usuarios</h1>
+
+        <form action="{{ route('registro.store') }}" method="POST">
             @csrf
 
-            <input type="text" name="name" placeholder="Nombre" class="form-control" required>
-            <br>
-            <input type="email" name="gmail" placeholder="Correo" class="form-control" required>
-            <br>
-            <input type="text" name="phone" placeholder="Teléfono" class="form-control" required>
-            <br>
-            <input type="password" name="password" placeholder="Contraseña" class="form-control" required>
-            <br>
-            <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña" class="form-control"
-                required>
-            <br>
-
-            <div class="form-check">
-                <input type="checkbox" name="is_admin" value="1">
-                <label>Es administrador</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                <input type="text" name="name" placeholder="Nombre" class="form-control" required>
             </div>
-            <button type="submit" class="btn btn-success">Guardar</button>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                <input type="email" name="gmail" placeholder="Correo" class="form-control" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                <input type="text" name="phone" placeholder="Teléfono" class="form-control" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" name="password" placeholder="Contraseña" class="form-control" required>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" name="password_confirmation" placeholder="Confirmar contraseña" class="form-control"
+                    required>
+            </div>
+
+            <div class="form-check mb-3">
+                <input type="checkbox" name="is_admin" value="1" class="form-check-input">
+                <label class="form-check-label">Es administrador</label>
+            </div>
+
+            <button type="submit" class="btn btn-outline-primary">
+                <i class="fa-solid fa-floppy-disk"></i> Guardar
+            </button>
+
         </form>
     @endsection
+
 </body>
 
 </html>

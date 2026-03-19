@@ -56,11 +56,12 @@ class LibroController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-   public function edit(Libro $libro)
+    public function edit(Libro $libro)
     {
-        // Retornar vista con los datos del libro
+        // Se manda la vista para la edición de un registro específico
         return view('libros.edit', compact('libro'));
     }
+
     /**
      * Update the specified resource in storage.
      */
@@ -76,7 +77,7 @@ class LibroController extends Controller
         //realixzar la actualixzacion en la base de datos
         $libro->update($request->all());
         return redirect()->route('libros.index')
-        ->with('Success','Actualización con exito');
+            ->with('Success', 'Actualización con exito');
     }
 
     /**
@@ -85,10 +86,10 @@ class LibroController extends Controller
     public function destroy(Libro $libro)
     {
         //Eliminacion del registro
-        $libro -> delete();
+        $libro->delete();
 
         //redireccionar al usuario
         return redirect()->route('libros.idex')
-        ->with('Success','Libro eliminado');
+            ->with('Success', 'Libro eliminado');
     }
 }
