@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Usuario</title>
+    <title>Registrar Libro</title>
 </head>
 
 <body>
-    <h1 class="mb-4">Registrar usuario</h1>
+    <h1 class="mb-4">REGISTRAR LIBROS</h1>
 
     <form action="{{ route('libros.store') }}" method="POST">
         @csrf
@@ -34,6 +34,10 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Guardar</button>
+
+        <a href="{{ route('libros.index') }}" class="btn btn-secondary">
+            <i class="fa-solid fa-arrow-left"></i> Regresar
+        </a>
 
     </form>
 </body>

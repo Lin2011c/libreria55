@@ -89,7 +89,7 @@ class LibroController extends Controller
         $libro->delete();
 
         //redireccionar al usuario
-        return redirect()->route('libros.idex')
+        return redirect()->route('libros.index')
             ->with('Success', 'Libro eliminado');
     }
 }

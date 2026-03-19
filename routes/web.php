@@ -56,6 +56,10 @@ Route::post('/cerrar', [
     'logout'
 ])->name('cerrar');
 
+Route::middleware(['solo.auth'])->group(function () {
+    Route::resource('libros', LibroController::class);
+});
+
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin-dashboard', [
         AuthController::class,

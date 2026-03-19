@@ -23,7 +23,7 @@
 
             <div class="input-group mb-3">
                 <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
-                <input type="email" name="gmail" placeholder="Correo" class="form-control" required>
+                <input type="email" name="email" placeholder="Correo" class="form-control" required>
             </div>
 
             <div class="input-group mb-3">

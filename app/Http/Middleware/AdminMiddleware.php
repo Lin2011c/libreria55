@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Iluminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class AdminMiddleware
 {
@@ -14,19 +14,21 @@ class AdminMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
+
     public function handle(Request $request, Closure $next): Response
     {
-        //validar si el usuario tiene sesion activa
-        if(!Auth::check()){
+        // Verificación de inicio de sesión
+        if (!Auth::check()) {
             return redirect()->route('registro')
-            ->with('error','se debe registrar e iniciar sesion');
-
-            //validar si el usuario actual es admin
-            if(Auth::user()->is_admin){
-                return redirect()->route('libro.index')
-                ->with('error','no cuentas con permisos de admin');
-            }
+                ->with('error', 'Se debe iniciar sesión');
         }
+
+        // Verificación de administrador
+        if (!Auth::user()->is_admin) {
+            return redirect()->route('libros.index')
+                ->with('error', 'No cuentas con permisos de administraor');
+        }
+
         return $next($request);
     }
 }

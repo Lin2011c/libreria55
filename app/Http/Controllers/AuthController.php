@@ -68,16 +68,16 @@ class AuthController extends Controller
         ]);
     }
 
-    //metodo para cerrar sesión
+    // Método para cerrar sesión
 
     public function logout(Request $request)
     {
-        //cerrrar sesion
-        Auth::logout();
 
-        //cerrar credenciales del usuario
-        $request->session->invalidate();
-        $request->session->regenerateToken();
+        // Cierre de la sesión
+        Auth::logout();
+        // Cierre de credenciales en sesiones
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
         return redirect('/acceso');
     }

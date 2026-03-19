@@ -14,10 +14,22 @@
     @section('content')
         <h1>LIBROS DISPONIBLES</h1>
 
+
         <div class="d-flex justify-content-end mb-2">
-            <a href="{{ route('libros.create') }}" class="btn btn-success mb-3">
+            <a href="{{ route('libros.create') }}" class="btn btn-success me-3">
                 <i class="fa-solid fa-plus"></i> Nuevo libro
             </a>
+
+            <form action="{{ route('cerrar') }}" method="POST">
+                @csrf
+                <button class="btn btn-danger me-3">Salir</button>
+            </form>
+
+            @if (auth()->user()->is_admin)
+                <a href="{{ route('admin-dashboard') }}" class="btn btn-secondary">
+                    Panel Administrador
+                </a>
+            @endif
         </div>
 
         <table class="table table-striped table-hover">
